@@ -12,14 +12,6 @@ function App() {
     script.setAttribute('crossorigin', '*');
     document.body.appendChild(script);
 
-    script.onload = function () {
-      if (window.Tawk_API) {
-        window.Tawk_API.setAttributes({ language: "id" }, function (error) {
-          if (error) console.log("Gagal mengubah bahasa:", error);
-        });
-      }
-    };
-
     return () => {
       document.body.removeChild(script);
     };
