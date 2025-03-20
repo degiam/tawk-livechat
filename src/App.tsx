@@ -1,9 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  useEffect(() => {
+    var script = document.createElement('script');
+    script.src = 'https://embed.tawk.to/67db692fb7be2d190c6628c3/1imoh5p63';
+    script.async = true;
+    script.charset = 'UTF-8';
+    script.setAttribute('crossorigin', '*');
+    document.body.appendChild(script);
+
+    script.onload = function () {
+      if (window.Tawk_API) {
+        window.Tawk_API.setAttributes({ language: "id" }, function (error) {
+          if (error) console.log("Gagal mengubah bahasa:", error);
+        });
+      }
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const [count, setCount] = useState(0)
 
   return (
