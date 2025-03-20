@@ -17,6 +17,18 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    var script = document.createElement('script');
+    script.src = 'https://app.a11ywidget.com/api/embedded/widget';
+    script.async = true;
+    script.setAttribute('data-site-id', '7e36f950-fd67-443c-bb02-2374d8b52c9b');
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const [count, setCount] = useState(0)
 
   return (
